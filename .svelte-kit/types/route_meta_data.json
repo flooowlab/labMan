@@ -1,0 +1,273 @@
+{
+	"/": [
+		"src/routes/+page.server.ts"
+	],
+	"/api/auth/login": [
+		"src/routes/api/auth/login/+server.ts"
+	],
+	"/api/auth/logout": [
+		"src/routes/api/auth/logout/+server.ts"
+	],
+	"/api/auth/me": [
+		"src/routes/api/auth/me/+server.ts"
+	],
+	"/api/auth/refresh": [
+		"src/routes/api/auth/refresh/+server.ts"
+	],
+	"/api/auth/totp/enroll": [
+		"src/routes/api/auth/totp/enroll/+server.ts"
+	],
+	"/api/auth/totp/verify": [
+		"src/routes/api/auth/totp/verify/+server.ts"
+	],
+	"/api/health": [
+		"src/routes/api/health/+server.ts"
+	],
+	"/api/labs": [
+		"src/routes/api/labs/+server.ts"
+	],
+	"/api/labs/[labId]": [
+		"src/routes/api/labs/[labId]/+server.ts"
+	],
+	"/api/[labId]/alerts": [
+		"src/routes/api/[labId]/alerts/+server.ts"
+	],
+	"/api/[labId]/alerts/[id]/acknowledge": [
+		"src/routes/api/[labId]/alerts/[id]/acknowledge/+server.ts"
+	],
+	"/api/[labId]/audit": [
+		"src/routes/api/[labId]/audit/+server.ts"
+	],
+	"/api/[labId]/authorizations": [
+		"src/routes/api/[labId]/authorizations/+server.ts"
+	],
+	"/api/[labId]/authorizations/[id]": [
+		"src/routes/api/[labId]/authorizations/[id]/+server.ts"
+	],
+	"/api/[labId]/borrows": [
+		"src/routes/api/[labId]/borrows/+server.ts"
+	],
+	"/api/[labId]/borrows/[id]": [
+		"src/routes/api/[labId]/borrows/[id]/+server.ts"
+	],
+	"/api/[labId]/borrows/[id]/approve-extension": [
+		"src/routes/api/[labId]/borrows/[id]/approve-extension/+server.ts"
+	],
+	"/api/[labId]/borrows/[id]/pdf": [
+		"src/routes/api/[labId]/borrows/[id]/pdf/+server.ts"
+	],
+	"/api/[labId]/borrows/[id]/print": [
+		"src/routes/api/[labId]/borrows/[id]/print/+server.ts"
+	],
+	"/api/[labId]/borrows/[id]/reject-extension": [
+		"src/routes/api/[labId]/borrows/[id]/reject-extension/+server.ts"
+	],
+	"/api/[labId]/borrows/[id]/request-extension": [
+		"src/routes/api/[labId]/borrows/[id]/request-extension/+server.ts"
+	],
+	"/api/[labId]/borrows/[id]/return": [
+		"src/routes/api/[labId]/borrows/[id]/return/+server.ts"
+	],
+	"/api/[labId]/borrows/[id]/signature/[role]": [
+		"src/routes/api/[labId]/borrows/[id]/signature/[role]/+server.ts"
+	],
+	"/api/[labId]/incident-reports": [
+		"src/routes/api/[labId]/incident-reports/+server.ts"
+	],
+	"/api/[labId]/incident-reports/[id]": [
+		"src/routes/api/[labId]/incident-reports/[id]/+server.ts"
+	],
+	"/api/[labId]/items": [
+		"src/routes/api/[labId]/items/+server.ts"
+	],
+	"/api/[labId]/items/barcode/[code]": [
+		"src/routes/api/[labId]/items/barcode/[code]/+server.ts"
+	],
+	"/api/[labId]/items/bulk-import": [
+		"src/routes/api/[labId]/items/bulk-import/+server.ts"
+	],
+	"/api/[labId]/items/[id]": [
+		"src/routes/api/[labId]/items/[id]/+server.ts"
+	],
+	"/api/[labId]/items/[id]/accessories": [
+		"src/routes/api/[labId]/items/[id]/accessories/+server.ts"
+	],
+	"/api/[labId]/items/[id]/assets/fetch": [
+		"src/routes/api/[labId]/items/[id]/assets/fetch/+server.ts"
+	],
+	"/api/[labId]/items/[id]/availability": [
+		"src/routes/api/[labId]/items/[id]/availability/+server.ts"
+	],
+	"/api/[labId]/items/[id]/image": [
+		"src/routes/api/[labId]/items/[id]/image/+server.ts"
+	],
+	"/api/[labId]/items/[id]/label": [
+		"src/routes/api/[labId]/items/[id]/label/+server.ts"
+	],
+	"/api/[labId]/items/[id]/units": [
+		"src/routes/api/[labId]/items/[id]/units/+server.ts"
+	],
+	"/api/[labId]/kits": [
+		"src/routes/api/[labId]/kits/+server.ts"
+	],
+	"/api/[labId]/kits/[id]": [
+		"src/routes/api/[labId]/kits/[id]/+server.ts"
+	],
+	"/api/[labId]/locations": [
+		"src/routes/api/[labId]/locations/+server.ts"
+	],
+	"/api/[labId]/locations/diagram": [
+		"src/routes/api/[labId]/locations/diagram/+server.ts"
+	],
+	"/api/[labId]/locations/[id]": [
+		"src/routes/api/[labId]/locations/[id]/+server.ts"
+	],
+	"/api/[labId]/reservations": [
+		"src/routes/api/[labId]/reservations/+server.ts"
+	],
+	"/api/[labId]/reservations/calendar": [
+		"src/routes/api/[labId]/reservations/calendar/+server.ts"
+	],
+	"/api/[labId]/reservations/[id]": [
+		"src/routes/api/[labId]/reservations/[id]/+server.ts"
+	],
+	"/api/[labId]/reservations/[id]/convert-to-borrow": [
+		"src/routes/api/[labId]/reservations/[id]/convert-to-borrow/+server.ts"
+	],
+	"/api/[labId]/reservations/[id]/instructor-approve": [
+		"src/routes/api/[labId]/reservations/[id]/instructor-approve/+server.ts"
+	],
+	"/api/[labId]/reservations/[id]/instructor-reject": [
+		"src/routes/api/[labId]/reservations/[id]/instructor-reject/+server.ts"
+	],
+	"/api/[labId]/reservations/[id]/manager-approve": [
+		"src/routes/api/[labId]/reservations/[id]/manager-approve/+server.ts"
+	],
+	"/api/[labId]/reservations/[id]/manager-reject": [
+		"src/routes/api/[labId]/reservations/[id]/manager-reject/+server.ts"
+	],
+	"/api/[labId]/units/[id]": [
+		"src/routes/api/[labId]/units/[id]/+server.ts"
+	],
+	"/api/[labId]/units/[id]/label": [
+		"src/routes/api/[labId]/units/[id]/label/+server.ts"
+	],
+	"/api/[labId]/users": [
+		"src/routes/api/[labId]/users/+server.ts"
+	],
+	"/api/[labId]/users/rfid/[tag]": [
+		"src/routes/api/[labId]/users/rfid/[tag]/+server.ts"
+	],
+	"/api/[labId]/users/[id]": [
+		"src/routes/api/[labId]/users/[id]/+server.ts"
+	],
+	"/api/[labId]/users/[id]/export": [
+		"src/routes/api/[labId]/users/[id]/export/+server.ts"
+	],
+	"/login": [
+		"src/routes/login/+page.server.ts"
+	],
+	"/[lab]/(protected)": [
+		"src/routes/[lab]/(protected)/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/audit": [
+		"src/routes/[lab]/(protected)/audit/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/borrows": [
+		"src/routes/[lab]/(protected)/borrows/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/borrows/new": [
+		"src/routes/[lab]/(protected)/borrows/new/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/borrows/[id]": [
+		"src/routes/[lab]/(protected)/borrows/[id]/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/borrows/[id]/return": [
+		"src/routes/[lab]/(protected)/borrows/[id]/return/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/catalog": [
+		"src/routes/[lab]/catalog/+page.server.ts"
+	],
+	"/[lab]/catalog/[id]": [
+		"src/routes/[lab]/catalog/[id]/+page.server.ts"
+	],
+	"/[lab]/(protected)/inventory": [
+		"src/routes/[lab]/(protected)/inventory/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/inventory/new": [
+		"src/routes/[lab]/(protected)/inventory/new/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/inventory/[id]": [
+		"src/routes/[lab]/(protected)/inventory/[id]/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/inventory/[id]/edit": [
+		"src/routes/[lab]/(protected)/inventory/[id]/edit/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/inventory/[id]/units/new": [
+		"src/routes/[lab]/(protected)/inventory/[id]/units/new/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/inventory/[id]/units/[unitId]/edit": [
+		"src/routes/[lab]/(protected)/inventory/[id]/units/[unitId]/edit/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/kits": [
+		"src/routes/[lab]/(protected)/kits/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/kits/new": [
+		"src/routes/[lab]/(protected)/kits/new/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/kits/[id]": [
+		"src/routes/[lab]/(protected)/kits/[id]/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/locations": [
+		"src/routes/[lab]/(protected)/locations/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/locations/diagram": [
+		"src/routes/[lab]/(protected)/locations/diagram/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/reservations": [
+		"src/routes/[lab]/(protected)/reservations/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/reservations/calendar": [
+		"src/routes/[lab]/(protected)/reservations/calendar/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/reservations/new": [
+		"src/routes/[lab]/(protected)/reservations/new/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/reservations/pending": [
+		"src/routes/[lab]/(protected)/reservations/pending/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/reservations/[id]": [
+		"src/routes/[lab]/(protected)/reservations/[id]/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/users": [
+		"src/routes/[lab]/(protected)/users/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	],
+	"/[lab]/(protected)/users/[id]": [
+		"src/routes/[lab]/(protected)/users/[id]/+page.server.ts",
+		"src/routes/[lab]/(protected)/+layout.server.ts"
+	]
+}

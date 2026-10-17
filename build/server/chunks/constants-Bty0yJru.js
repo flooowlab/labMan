@@ -1,0 +1,13 @@
+const HYDRATION_START = "[";
+const HYDRATION_START_ELSE = "[!";
+const HYDRATION_START_FAILED = "[?";
+const HYDRATION_END = "]";
+const HYDRATION_ERROR = {};
+const ELEMENT_IS_NAMESPACED = 1;
+const ELEMENT_PRESERVE_ATTRIBUTE_CASE = 1 << 1;
+const ELEMENT_IS_INPUT = 1 << 2;
+const UNINITIALIZED = Symbol("uninitialized");
+const FILENAME = Symbol("filename");
+
+export { ELEMENT_IS_INPUT as E, FILENAME as F, HYDRATION_END as H, UNINITIALIZED as U, ELEMENT_IS_NAMESPACED as a, ELEMENT_PRESERVE_ATTRIBUTE_CASE as b, HYDRATION_ERROR as c, HYDRATION_START as d, HYDRATION_START_ELSE as e, HYDRATION_START_FAILED as f };
+//# sourceMappingURL=constants-Bty0yJru.js.map

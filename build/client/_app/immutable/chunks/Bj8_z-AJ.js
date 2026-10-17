@@ -1,0 +1,1 @@
+import{bg as p,Z as a,l as c,aD as u,b9 as s,af as _}from"./BiTaY2zf.js";import{B as f}from"./BcVH-kG-.js";function l(n){return n.toString=()=>(p(),""),n}function g(n,e,...r){var i=new f(n);a(()=>{const t=e()??null;t==null&&u(),i.ensure(t,t&&(o=>t(o,...r)))},c)}function b(n,e){const r=(i,...t)=>{var o=_;s(n);try{return e(i,...t)}finally{s(o)}};return l(r),r}export{g as s,b as w};

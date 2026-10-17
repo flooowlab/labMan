@@ -1,0 +1,1 @@
+import{c as n,l as p,d as m,a as c}from"../chunks/BkvbpPaU.js";import{aX as i,al as l,U as d,aU as u,F as f}from"../chunks/BiTaY2zf.js";import{s as _}from"../chunks/Bj8_z-AJ.js";a[f]="src/routes/+layout.svelte";function a(r,e){n(new.target),i(e,!0,a);var s={...p()},t=m(),o=l(t);return d(()=>_(o,()=>e.children),"render",a,8,0),c(r,t),u(s)}export{a as component};

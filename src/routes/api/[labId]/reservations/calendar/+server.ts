@@ -1,0 +1,93 @@
+import { withAuth, ok } from '$lib/middleware.js';
+import { readDb } from '$lib/db.js';
+import type { Reservation, Item, Unit } from '$lib/types.js';
+
+// GET /api/:labId/reservations/calendar
+// Returns events shaped for FullCalendar resource-timeline, role-filtered.
+export const GET = withAuth(async (ctx, user, membership) => {
+  const labId = ctx.params.labId!;
+  const { searchParams } = ctx.url;
+
+  const start = searchParams.get('start');
+  const end = searchParams.get('end');
+
+  let reservations = readDb<Reservation>(labId, 'reservations.json').filter(
+    (r) => !['cancelled', 'expired', 'rejected'].includes(r.status),
+  );
+
+  // Optional date window filter
+  if (start) {
+    const startMs = new Date(start).getTime();
+    reservations = reservations.filter((r) => new Date(r.end_at).getTime() >= startMs);
+  }
+  if (end) {
+    const endMs = new Date(end).getTime();
+    reservations = reservations.filter((r) => new Date(r.start_at).getTime() <= endMs);
+  }
+
+  const role = membership?.role;
+
+  if (role === 'student') {
+    // Students: own events (full detail) + per-item availability bars (no user data)
+    const ownEvents = reservations
+      .filter((r) => r.user_id === user.user_id)
+      .map(toFullEvent);
+
+    const items = readDb<Item>(labId, 'items.json').filter((i) => !i.deleted_at);
+    const units = readDb<Unit>(labId, 'units.json').filter((u) => !u.deleted_at);
+
+    // Build per-item availability events (free count bars)
+    const availabilityBars = items.flatMap((item) => {
+      const overlapping = reservations.filter(
+        (r) =>
+          r.lines.some((l) => l.item_id === item.id),
+      );
+      if (overlapping.length === 0) return [];
+      const totalUnits =
+        item.tracking_mode === 'serialized'
+          ? units.filter((u) => u.item_id === item.id && u.status !== 'retired').length
+          : item.quantity_total ?? 0;
+      return overlapping.map((r) => {
+        const reserved = r.lines
+          .filter((l) => l.item_id === item.id)
+          .reduce((s, l) => s + l.quantity, 0);
+        return {
+          id: `avail-${item.id}-${r.id}`,
+          resourceId: item.id,
+          start: r.start_at,
+          end: r.end_at,
+          title: `${Math.max(0, totalUnits - reserved)} available`,
+          display: 'background',
+        };
+      });
+    });
+
+    return ok({ events: [...ownEvents, ...availabilityBars] });
+  }
+
+  if (role === 'instructor') {
+    const visible = reservations.filter(
+      (r) => r.user_id === user.user_id || r.instructor_id === user.user_id,
+    );
+    return ok({ events: visible.map(toFullEvent) });
+  }
+
+  // manager / admin / technician — all events
+  return ok({ events: reservations.map(toFullEvent) });
+}, { minRole: 'viewer' });
+
+function toFullEvent(r: Reservation) {
+  return {
+    id: r.id,
+    start: r.start_at,
+    end: r.end_at,
+    title: r.purpose,
+    extendedProps: {
+      status: r.status,
+      user_id: r.user_id,
+      course_code: r.course_code,
+      lines: r.lines,
+      borrow_id: r.borrow_id,
+    },
+  };
+}

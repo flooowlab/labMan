@@ -1,0 +1,41 @@
+import { w as withAuth, e as err, o as ok } from './middleware-ngQf4GKt.js';
+import { a as readDb } from './db-CfhGAyvN.js';
+import { s as sanitizeCode } from './validate-NtJDb-c4.js';
+import './auth-ByWUbuPz.js';
+import 'jose';
+import 'fs';
+import 'crypto';
+import 'path';
+import 'proper-lockfile';
+import 'zod';
+
+const GET = withAuth(async (ctx) => {
+  const labId = ctx.params.labId;
+  const raw = decodeURIComponent(ctx.params.tag ?? "");
+  const clean = sanitizeCode(raw).toUpperCase();
+  const users = readDb("_global", "users.json");
+  const memberships = readDb("_global", "lab_memberships.json");
+  const u = users.find(
+    (x) => x.rfid_tag != null && sanitizeCode(x.rfid_tag).toUpperCase() === clean && x.is_active && !x.redacted_at
+  );
+  if (!u) return err(404, "No user found with that RFID tag");
+  const m = memberships.find((x) => x.user_id === u.id && x.lab_id === labId && x.is_active);
+  if (!m) return err(404, "User is not a member of this lab");
+  return ok({
+    id: u.id,
+    name: u.name,
+    email: u.email,
+    rfid_tag: u.rfid_tag,
+    membership: {
+      id: m.id,
+      role: m.role,
+      user_type: m.user_type,
+      student_level: m.student_level,
+      no_show_count: m.no_show_count,
+      borrow_restricted_until: m.borrow_restricted_until
+    }
+  });
+}, { minRole: "technician" });
+
+export { GET };
+//# sourceMappingURL=_server.ts-C3UF_t_s.js.map

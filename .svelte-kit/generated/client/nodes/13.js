@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/[lab]/(protected)/inventory/[id]/+page.svelte";
